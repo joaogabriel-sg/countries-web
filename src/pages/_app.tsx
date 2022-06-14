@@ -1,8 +1,20 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
+
+import { Header } from '@/components';
+import { globalStyles } from '@/styles/global';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  useEffect(() => {
+    globalStyles();
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
