@@ -1,7 +1,9 @@
+import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 
 import { Header } from '@/components';
+import { SEO } from '@/shared/configs';
 import { globalStyles } from '@/styles/global';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -11,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <DefaultSeo {...SEO} />
       <Header />
       <Component {...pageProps} />
     </>
