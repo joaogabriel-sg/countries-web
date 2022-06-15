@@ -1,26 +1,53 @@
 import { CaretDown } from 'phosphor-react';
+import { memo, useState } from 'react';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 import * as S from './styles';
 
-const continents = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
+const continents = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-export function FilterByRegion() {
+interface IPropsFilterByRegion {
+  onSelectRegion: (continent: string) => void;
+}
+
+function FilterByRegionComponent({ onSelectRegion }: IPropsFilterByRegion) {
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  function handleSelectRegion(continent: string) {
+    setSelectedRegion(continent);
+    onSelectRegion(continent);
+    setIsPopoverOpen(false);
+  }
+
   return (
-    <PopoverPrimitive.Root>
-      <PopoverPrimitive.Trigger asChild>
+    <PopoverPrimitive.Root open={isPopoverOpen}>
+      <PopoverPrimitive.Trigger asChild onClick={() => setIsPopoverOpen(true)}>
         <S.SelectedItem>
-          Filter by Region
+          {selectedRegion || 'Filter by Region'}
           <CaretDown weight="bold" size={16} />
         </S.SelectedItem>
       </PopoverPrimitive.Trigger>
 
       <S.PopoverContent>
-        {continents.map((continent) => (
-          <S.Option key={continent}>{continent}</S.Option>
-        ))}
+        {!!selectedRegion && (
+          <S.Option onClick={() => handleSelectRegion('')}>All</S.Option>
+        )}
+
+        {continents
+          .filter((continent) => continent !== selectedRegion)
+          .map((continent) => (
+            <S.Option
+              key={continent}
+              onClick={() => handleSelectRegion(continent)}
+            >
+              {continent}
+            </S.Option>
+          ))}
       </S.PopoverContent>
     </PopoverPrimitive.Root>
   );
 }
+
+export const FilterByRegion = memo(FilterByRegionComponent);

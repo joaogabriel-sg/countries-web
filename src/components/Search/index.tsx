@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from 'phosphor-react';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, memo, useEffect, useState } from 'react';
 
 import { useDebouncedValue } from '@/shared/hooks';
 
@@ -9,7 +9,7 @@ interface IPropsSearch {
   onSearchCountry: (country: string) => void;
 }
 
-export function Search({ onSearchCountry }: IPropsSearch) {
+function SearchComponent({ onSearchCountry }: IPropsSearch) {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebouncedValue(searchTerm.trim());
 
@@ -36,3 +36,5 @@ export function Search({ onSearchCountry }: IPropsSearch) {
     </S.Container>
   );
 }
+
+export const Search = memo(SearchComponent);

@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { Countries, FilterByRegion, Search } from '@/components';
 import { CountriesService } from '@/shared/services';
@@ -11,28 +11,35 @@ interface IPropsHome {
 }
 
 export default function Home({ countries }: IPropsHome) {
-  const [filteredCountries, setFilteredCountries] = useState(countries);
+  const [filterSearchCountry, setFilterSearchCountry] = useState('');
+  const [filterSelectedRegion, setFilterSelectedRegion] = useState('');
 
-  function onSearchCountry(countryToSearch: string) {
-    if (countryToSearch === '') {
-      setFilteredCountries(countries);
-      return;
-    }
+  const filteredCountries = useMemo(() => {
+    const countriesBySearchWord = countries.filter((country) =>
+      country.name.common.toLowerCase().includes(filterSearchCountry),
+    );
 
-    const newFilteredCountries = countries
-      ? countries.filter((country) =>
-          country.name.common.toLowerCase().includes(countryToSearch),
-        )
-      : [];
+    const countriesBySelectedRegion = countriesBySearchWord.filter(
+      (country) =>
+        !filterSelectedRegion || country.region === filterSelectedRegion,
+    );
 
-    setFilteredCountries(newFilteredCountries);
-  }
+    return countriesBySelectedRegion;
+  }, [countries, filterSearchCountry, filterSelectedRegion]);
+
+  const onSearchCountry = useCallback((countryToSearch: string) => {
+    setFilterSearchCountry(countryToSearch);
+  }, []);
+
+  const onSelectRegion = useCallback((continent: string) => {
+    setFilterSelectedRegion(continent);
+  }, []);
 
   return (
     <S.Container>
       <S.FiltersSection>
         <Search onSearchCountry={onSearchCountry} />
-        <FilterByRegion />
+        <FilterByRegion onSelectRegion={onSelectRegion} />
       </S.FiltersSection>
 
       <Countries countries={filteredCountries} />
