@@ -16,4 +16,7 @@ export const globalStyles = globalCss({
     fontWeight: 600,
     fontSize: '1rem',
   },
+  'ul, ol': {
+    listStyle: 'none',
+  },
 });

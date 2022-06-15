@@ -18,10 +18,12 @@ export const Container = styled('div', {
 
 export const FiltersSection = styled('section', {
   width: '100%',
+  marginBottom: pxToRem(24),
   display: 'flex',
   flexDirection: 'column',
   gap: pxToRem(24),
   '@sm': {
+    marginBottom: pxToRem(48),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
