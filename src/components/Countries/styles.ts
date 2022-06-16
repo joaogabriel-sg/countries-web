@@ -1,7 +1,9 @@
+import { motion } from 'framer-motion';
+
 import { pxToRem } from '@/shared/utils';
 import { styled } from '@/stitches.config';
 
-export const Container = styled('ul', {
+export const Container = styled(motion.ul, {
   width: '100%',
   display: 'grid',
   gridTemplateColumns: `1fr`,
@@ -18,9 +20,11 @@ export const Container = styled('ul', {
   },
 });
 
+export const CardWrapper = styled(motion.li, {});
+
 export const Card = styled('a', {
   background: '$white',
-  minHeight: pxToRem(380),
+  height: pxToRem(380),
   display: 'flex',
   flexDirection: 'column',
   overflow: 'hidden',
