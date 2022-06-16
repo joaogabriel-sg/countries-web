@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import { pxToRem } from '@/shared/utils';
 import { styled } from '@/stitches.config';
 
+export const EmptyContainer = styled('div', {
+  fontSize: pxToRem(20),
+  textAlign: 'center',
+});
+
 export const Container = styled(motion.ul, {
   width: '100%',
   display: 'grid',

@@ -33,6 +33,14 @@ const itemVariants: Variants = {
 };
 
 export function Countries({ countries }: IPropsCountries) {
+  if (countries.length === 0) {
+    return (
+      <S.EmptyContainer>
+        <span>Nothing to show...</span>
+      </S.EmptyContainer>
+    );
+  }
+
   return (
     <S.Container
       layout
