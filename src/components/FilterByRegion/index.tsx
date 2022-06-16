@@ -22,8 +22,8 @@ function FilterByRegionComponent({ onSelectRegion }: IPropsFilterByRegion) {
   }
 
   return (
-    <PopoverPrimitive.Root open={isPopoverOpen}>
-      <PopoverPrimitive.Trigger asChild onClick={() => setIsPopoverOpen(true)}>
+    <PopoverPrimitive.Root open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
+      <PopoverPrimitive.Trigger asChild>
         <S.SelectedItem>
           {selectedRegion || 'Filter by Region'}
           <CaretDown weight="bold" size={16} />
