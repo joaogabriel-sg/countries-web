@@ -56,7 +56,7 @@ export function Countries({ countries }: IPropsCountries) {
             layout
             variants={itemVariants}
           >
-            <Link href="/" passHref>
+            <Link href={`/country/${country.cca2.toLowerCase()}`} passHref>
               <S.Card>
                 <S.CardImage
                   src={country.flags.svg}
