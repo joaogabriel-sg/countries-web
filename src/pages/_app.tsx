@@ -1,7 +1,7 @@
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import NextNProgress from 'nextjs-progressbar';
 
 import { Header } from '@/components';
 import { SEO } from '@/shared/configs';
@@ -23,6 +23,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <DefaultSeo {...SEO} />
+      <NextNProgress
+        color="#f1c40f"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+      />
       <Header />
       <Component {...pageProps} />
     </ThemeProvider>
