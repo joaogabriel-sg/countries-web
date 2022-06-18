@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'phosphor-react';
 
+import { Neighbors } from '@/components';
 import { CountriesService } from '@/shared/services';
 import { TCountry } from '@/shared/types';
 import * as S from '@/styles/pages/Country';
@@ -84,13 +85,7 @@ export default function Country({ country, neighbors }: IPropsCountry) {
 
           <S.BorderCountriesContainer>
             <strong>Border Countries: </strong>
-            <S.Neighbors>
-              {neighbors.map((neighbor) => (
-                <S.Neighbor key={neighbor.name.common}>
-                  {neighbor.name.common}
-                </S.Neighbor>
-              ))}
-            </S.Neighbors>
+            <Neighbors neighbors={neighbors} />
           </S.BorderCountriesContainer>
         </S.Wrapper>
       </S.Information>

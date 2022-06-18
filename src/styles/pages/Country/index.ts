@@ -115,19 +115,3 @@ export const BorderCountriesContainer = styled('div', {
     gap: pxToRem(32),
   },
 });
-
-export const Neighbors = styled('ul', {
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: pxToRem(8),
-});
-
-export const Neighbor = styled('li', {
-  background: '$buttonBackground',
-  padding: `${pxToRem(4)} ${pxToRem(16)}`,
-  borderRadius: 4,
-  boxShadow: '$default',
-  fontWeight: 300,
-  fontSize: pxToRem(14),
-  color: '$buttonText',
-});
