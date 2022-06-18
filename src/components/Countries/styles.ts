@@ -6,6 +6,7 @@ import { styled } from '@/stitches.config';
 export const EmptyContainer = styled('div', {
   fontSize: pxToRem(20),
   textAlign: 'center',
+  color: '$text',
 });
 
 export const Container = styled(motion.ul, {
@@ -28,7 +29,7 @@ export const Container = styled(motion.ul, {
 export const CardWrapper = styled(motion.li, {});
 
 export const Card = styled('a', {
-  background: '$white',
+  background: '$cardBackground',
   height: pxToRem(380),
   display: 'flex',
   flexDirection: 'column',
@@ -36,7 +37,7 @@ export const Card = styled('a', {
   borderRadius: 4,
   boxShadow: '$default',
   textDecoration: 'none',
-  color: '$darkBlue',
+  color: '$cardText',
 });
 
 export const CardImage = styled('img', {
@@ -53,7 +54,6 @@ export const CardTitle = styled('h3', {
   marginBottom: pxToRem(16),
   fontSize: pxToRem(20),
   fontWeight: 800,
-  color: '$darkBlue',
 });
 
 export const CardData = styled('span', {

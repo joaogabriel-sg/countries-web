@@ -19,7 +19,7 @@ export const Field = styled(LabelPrimitive.Root, {
   borderRadius: 4,
   boxShadow: '$default',
   '& > svg': {
-    color: '$darkGray',
+    color: '$inputText',
   },
 });
 
@@ -30,8 +30,8 @@ export const Input = styled('input', {
   border: 0,
   outline: 0,
   fontSize: pxToRem(14),
-  color: '$darkGray',
+  color: '$inputText',
   '&::placeholder': {
-    color: '$darkGray',
+    color: '$inputText',
   },
 });

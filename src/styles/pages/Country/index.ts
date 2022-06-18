@@ -17,7 +17,7 @@ export const Container = styled('div', {
 });
 
 export const BackButton = styled('a', {
-  background: '$white',
+  background: '$buttonBackground',
   maxWidth: 'fit-content',
   padding: `${pxToRem(8)} ${pxToRem(32)}`,
   borderRadius: 4,
@@ -29,7 +29,7 @@ export const BackButton = styled('a', {
   textDecoration: 'none',
   fontSize: pxToRem(18),
   fontWeight: 300,
-  color: '$darkBlue',
+  color: '$buttonText',
 });
 
 export const Information = styled('section', {
@@ -37,6 +37,7 @@ export const Information = styled('section', {
   flexDirection: 'column',
   gap: pxToRem(32),
   marginTop: pxToRem(24),
+  color: '$text',
   '@sm': {
     marginTop: pxToRem(48),
   },
@@ -122,10 +123,11 @@ export const Neighbors = styled('ul', {
 });
 
 export const Neighbor = styled('li', {
-  background: '$white',
+  background: '$buttonBackground',
   padding: `${pxToRem(4)} ${pxToRem(16)}`,
   borderRadius: 4,
   boxShadow: '$default',
   fontWeight: 300,
   fontSize: pxToRem(14),
+  color: '$buttonText',
 });

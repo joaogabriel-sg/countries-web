@@ -16,6 +16,7 @@ export const SelectedItem = styled('button', {
   justifyContent: 'space-between',
   cursor: 'default',
   fontSize: pxToRem(14),
+  color: '$inputText',
 });
 
 export const PopoverContent = styled(PopoverPrimitive.Content, {
@@ -23,6 +24,7 @@ export const PopoverContent = styled(PopoverPrimitive.Content, {
   width: pxToRem(200),
   paddingTop: pxToRem(8),
   paddingBottom: pxToRem(8),
+  borderRadius: 4,
   marginTop: pxToRem(8),
   boxShadow: '$default',
 });
@@ -39,6 +41,7 @@ export const Option = styled('button', {
   alignItems: 'center',
   justifyContent: 'space-between',
   fontSize: pxToRem(14),
+  color: '$inputText',
   cursor: 'pointer',
   '& + &': {
     marginTop: pxToRem(4),
