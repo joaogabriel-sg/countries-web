@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import { pxToRem } from '@/shared/utils';
 import { styled } from '@/stitches.config';
 
@@ -7,7 +9,7 @@ export const EmptyMessage = styled('span', {
   color: '$text',
 });
 
-export const Container = styled('ul', {
+export const Container = styled(motion.ul, {
   display: 'flex',
   flexWrap: 'wrap',
   gap: pxToRem(8),

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import { pxToRem } from '@/shared/utils';
 import { styled } from '@/stitches.config';
 
@@ -52,28 +54,30 @@ export const FlagContainer = styled('div', {
   flexShrink: 1,
   width: '100%',
   maxWidth: pxToRem(400),
+  height: '100%',
   '@md': {
     maxWidth: pxToRem(600),
   },
 });
 
-export const Flag = styled('img', {
+export const Flag = styled(motion.img, {
   width: '100%',
+  height: '100%',
 });
 
-export const Wrapper = styled('div', {
+export const Wrapper = styled(motion.div, {
   flex: 1,
   '@sm': {
     minWidth: 410,
   },
 });
 
-export const CountryName = styled('h2', {
+export const CountryName = styled(motion.h2, {
   fontWeight: 800,
   fontSize: pxToRem(40),
 });
 
-export const DataContainer = styled('div', {
+export const DataContainer = styled(motion.div, {
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: 32,
@@ -98,7 +102,7 @@ export const Data = styled('span', {
   },
 });
 
-export const BorderCountriesContainer = styled('div', {
+export const BorderCountriesContainer = styled(motion.div, {
   marginTop: pxToRem(32),
   display: 'flex',
   flexDirection: 'column',

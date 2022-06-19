@@ -1,3 +1,4 @@
+import { Variants } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { ArrowLeft } from 'phosphor-react';
@@ -15,6 +16,26 @@ interface IPropsCountry {
   country: TCountry;
   neighbors: TCountry[];
 }
+
+const wrapperVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const contentVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -10,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+  },
+};
 
 export default function Country({ country, neighbors }: IPropsCountry) {
   const nativeName = !!country.name.nativeName
@@ -44,13 +65,24 @@ export default function Country({ country, neighbors }: IPropsCountry) {
 
       <S.Information>
         <S.FlagContainer>
-          <S.Flag src={country.flags.svg} alt={country.name.common} />
+          <S.Flag
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            src={country.flags.svg}
+            alt={country.name.common}
+          />
         </S.FlagContainer>
 
-        <S.Wrapper>
-          <S.CountryName>{country.name.common}</S.CountryName>
+        <S.Wrapper
+          variants={wrapperVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <S.CountryName variants={contentVariants}>
+            {country.name.common}
+          </S.CountryName>
 
-          <S.DataContainer>
+          <S.DataContainer variants={contentVariants}>
             <div>
               <S.Data>
                 <strong>Native Name: </strong>
@@ -89,7 +121,7 @@ export default function Country({ country, neighbors }: IPropsCountry) {
             </div>
           </S.DataContainer>
 
-          <S.BorderCountriesContainer>
+          <S.BorderCountriesContainer variants={contentVariants}>
             <strong>Border Countries: </strong>
             <Neighbors neighbors={neighbors} />
           </S.BorderCountriesContainer>
