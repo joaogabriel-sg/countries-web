@@ -1,5 +1,6 @@
 import { Variants } from 'framer-motion';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { ArrowLeft } from 'phosphor-react';
 
@@ -56,6 +57,8 @@ export default function Country({ country, neighbors }: IPropsCountry) {
 
   return (
     <S.Container>
+      <NextSeo title={country.name.common} />
+
       <Link href="/" passHref>
         <S.BackButton>
           <ArrowLeft size={20} />

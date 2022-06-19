@@ -1,6 +1,7 @@
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import NextNProgress from 'nextjs-progressbar';
 
 import { Header } from '@/components';
@@ -29,6 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         stopDelayMs={200}
         height={3}
       />
+      <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
       <Header />
       <Component {...pageProps} />
     </ThemeProvider>
