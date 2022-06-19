@@ -30,6 +30,7 @@ function SearchComponent({ onSearchCountry }: IPropsSearch) {
           id="search"
           placeholder="Search for a country..."
           value={searchTerm}
+          autoComplete="off"
           onChange={({ target }) => setSearchTerm(target.value)}
         />
       </S.Field>
