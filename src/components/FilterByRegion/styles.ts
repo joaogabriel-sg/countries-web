@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
+
 import { pxToRem } from '@/shared/utils';
 import { styled } from '@/stitches.config';
-import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export const SelectedItem = styled('button', {
   background: '$input',
@@ -19,7 +20,7 @@ export const SelectedItem = styled('button', {
   color: '$inputText',
 });
 
-export const PopoverContent = styled(PopoverPrimitive.Content, {
+export const Options = styled(motion.div, {
   background: '$input',
   width: pxToRem(200),
   paddingTop: pxToRem(8),
@@ -27,9 +28,10 @@ export const PopoverContent = styled(PopoverPrimitive.Content, {
   borderRadius: 4,
   marginTop: pxToRem(8),
   boxShadow: '$default',
+  transformOrigin: 'top',
 });
 
-export const Option = styled('button', {
+export const Option = styled(motion.button, {
   background: 'transparent',
   width: '100%',
   paddingTop: pxToRem(4),
