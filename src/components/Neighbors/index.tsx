@@ -9,7 +9,7 @@ interface IPropsNeighbors {
 }
 
 export function Neighbors({ neighbors }: IPropsNeighbors) {
-  if (neighbors.length === 0)
+  if (!neighbors || neighbors.length === 0)
     return <S.EmptyMessage>No countries</S.EmptyMessage>;
 
   return (

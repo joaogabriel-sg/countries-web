@@ -2,7 +2,7 @@ export type TCountry = {
   borders: string[];
   capital?: string[];
   cca2: string;
-  currencies: {
+  currencies?: {
     [key: string]: {
       name: string;
       symbol: string;
@@ -12,12 +12,12 @@ export type TCountry = {
     png: string;
     svg: string;
   };
-  languages: {
+  languages?: {
     [key: string]: string;
   };
   name: {
     common: string;
-    nativeName: {
+    nativeName?: {
       [key: string]: {
         official: string;
         common: string;
@@ -28,5 +28,5 @@ export type TCountry = {
   population: number;
   region: string;
   subregion: string;
-  tld: string[];
+  tld?: string[];
 };

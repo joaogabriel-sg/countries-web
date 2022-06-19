@@ -17,15 +17,21 @@ interface IPropsCountry {
 }
 
 export default function Country({ country, neighbors }: IPropsCountry) {
-  const nativeName = Object.values(country.name.nativeName).map(
-    ({ official }) => official,
-  )[0];
+  const nativeName = !!country.name.nativeName
+    ? Object.values(country.name.nativeName).map(({ official }) => official)[0]
+    : country.name.common;
 
-  const currencies = Object.values(country.currencies)
-    .map((currency) => currency.name)
-    .join(', ');
+  const currencies = !!country.currencies
+    ? Object.values(country.currencies)
+        .map((currency) => currency.name)
+        .join(', ')
+    : '-';
 
-  const languages = Object.values(country.languages).join(', ');
+  const languages = !!country.languages
+    ? Object.values(country.languages).join(', ')
+    : '-';
+
+  const topLevelDomain = !!country.tld ? country.tld.join(', ') : '-';
 
   return (
     <S.Container>
@@ -60,7 +66,7 @@ export default function Country({ country, neighbors }: IPropsCountry) {
               </S.Data>
               <S.Data>
                 <strong>Sub Region: </strong>
-                <span>{country.subregion}</span>
+                <span>{country.subregion || `-`}</span>
               </S.Data>
               <S.Data>
                 <strong>Capital: </strong>
@@ -70,7 +76,7 @@ export default function Country({ country, neighbors }: IPropsCountry) {
             <div>
               <S.Data>
                 <strong>Top Level Domain: </strong>
-                <span>{country.tld.join(', ')}</span>
+                <span>{topLevelDomain}</span>
               </S.Data>
               <S.Data>
                 <strong>Currencies: </strong>
@@ -94,14 +100,8 @@ export default function Country({ country, neighbors }: IPropsCountry) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const countries = await CountriesService.getCountries();
-
-  const paths = countries
-    ? countries.map((country) => ({ params: { id: country.cca2 } }))
-    : [];
-
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   };
 };
