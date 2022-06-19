@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import { Moon } from 'phosphor-react';
+import { Moon, Sun } from 'phosphor-react';
 import { useEffect } from 'react';
 
 import { useIsMounted } from '@/shared/hooks';
@@ -21,8 +21,8 @@ export function Header() {
       <S.Wrapper>
         <S.Title>Where in the world?</S.Title>
         <S.ToggleThemeButton onClick={handleToggleTheme}>
-          <Moon weight={isDarkTheme ? 'fill' : 'regular'} />
-          Dark Mode
+          {isDarkTheme ? <Sun weight="fill" /> : <Moon weight="fill" />}
+          {isDarkTheme ? 'Light Mode' : 'Dark Mode'}
         </S.ToggleThemeButton>
       </S.Wrapper>
     </S.Container>
