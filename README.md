@@ -1,34 +1,93 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">:earth_americas: Countries Web</h1>
 
-## Getting Started
+<p align="center">
+  <a href="https://countries-web-ivory.vercel.app/" target="_blank">View Demo</a>
+</p>
 
-First, run the development server:
+<p align="center">
+  <br />
+  <img src="https://img.shields.io/github/languages/top/joaogabriel-sg/countries-web" />
+  <img src="https://img.shields.io/github/issues/joaogabriel-sg/countries-web" />
+  <img src="https://img.shields.io/github/forks/joaogabriel-sg/countries-web" />
+  <img src="https://img.shields.io/github/stars/joaogabriel-sg/countries-web" />
+  <img src="https://img.shields.io/github/license/joaogabriel-sg/countries-web" />
+</p>
+
+<p align="center">
+  This is the <strong>Countries Web</strong>, a web application that lets you view data for all the countries in the world and filter them by country name and continent, created based on a <a href="https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca" target="_blank">Frontend Mentor challenge</a>.
+</h4>
+  
+<p align="center">
+  <a href="#video_game-getting-started">Getting started</a> | 
+  <a href="#rocket-technologies">Technologies</a> | 
+  <a href="#man_technologist-author">Author</a> | 
+  <a href="#memo-license">License</a> | 
+  <a href="#sparkles-show-your-support">Show your support</a>
+</p>
+
+<p align="center">
+  <a href="https://countries-web-ivory.vercel.app/" target="_blank">
+    <img src="https://i.imgur.com/Kl4ZJji.gif" />
+  </a>
+</p>
+
+## :video_game: Getting started
+
+Clone this repository.
 
 ```bash
-npm run dev
+git clone https://github.com/joaogabriel-sg/countries-web.git
+```
+
+Access the project folder.
+
+```bash
+cd countries-web
+```
+
+Install the dependencies.
+
+```bash
+npm install
+# or
+yarn
+```
+
+Run the project.
+
+```bash
+npm dev
 # or
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## :rocket: Technologies
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [React JS](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Stitches](https://stitches.dev/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Axios](https://axios-http.com/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Husky](https://github.com/typicode/husky)
+- [Lint-Staged](https://github.com/okonet/lint-staged)
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [Vercel](https://vercel.com/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## :man_technologist: Author
 
-## Learn More
+- GitHub: [@joaogabriel-sg](https://github.com/joaogabriel-sg)
+- LinkedIn: [@joaogabriel-sg](https://www.linkedin.com/in/joaogabriel-sg/)
 
-To learn more about Next.js, take a look at the following resources:
+## :memo: License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) for more information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## :sparkles: Show your support
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Give a :star: if this project helped you or if you liked it!
